@@ -122,7 +122,7 @@ namespace NoClippy
         {
             actionManager = (Structures.ActionManager*)ActionManager.Instance();
 
-            UseActionHook = new Hook<UseActionDelegate>(DalamudApi.SigScanner.ScanText("E8 ?? ?? ?? ?? 89 9F 14 79 02 00"), UseActionDetour);
+            UseActionHook = new Hook<UseActionDelegate>(DalamudApi.SigScanner.ScanText("E8 ?? ?? ?? ?? 89 9F ?? ?? ?? ?? EB 0A"), UseActionDetour);
             UseActionLocationHook = new Hook<UseActionLocationDelegate>(DalamudApi.SigScanner.ScanText("E8 ?? ?? ?? ?? E9 ?? ?? ?? ?? 81 FB FB 1C 00 00"), UseActionLocationDetour);
             SendActionHook = new Hook<SendActionDelegate>(DalamudApi.SigScanner.ScanText("E8 ?? ?? ?? ?? E9 ?? ?? ?? ?? F3 0F 10 3D ?? ?? ?? ?? 48 8D 4D BF"), SendActionDetour); // Found inside UseActionLocation
             CastBeginHook = new Hook<CastBeginDelegate>(DalamudApi.SigScanner.ScanText("40 55 56 48 81 EC ?? ?? ?? ?? 48 8B EA"), CastBeginDetour); // Bad sig, found within ActorCast packet
